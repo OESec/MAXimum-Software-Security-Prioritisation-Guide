@@ -350,19 +350,13 @@ For each criterion:
 - **Solution**: Remember that scores are weighted by criterion importance, not simple averages
 
 
-### Performance Issues
-
-- **Slow loading**: Check internet connection and browser performance
-- **Data not saving**: Ensure browser allows local storage
-- **Export failures**: Try using a different browser or clearing cache
-
 
 ### Getting Help
 
 - **Review this guide** for detailed instructions
 - **Check the Criteria Reference** for scoring explanations
 - **Contact system administrators** for technical issues
-- **Refer to organizational security policies** for evaluation guidance
+- **Refer to organisational security policies** for evaluation guidance
 
 
 ---
