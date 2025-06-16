@@ -1,26 +1,4 @@
-# MAXimum Security Priority Calc
-
-*Automatically synced with your [v0.dev](https://v0.dev) deployments*
-
-[![Deployed on Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?style=for-the-badge&logo=vercel)](https://vercel.com/security-requirements-projects/v0-max-imum-security-priority-calc)
-[![Built with v0](https://img.shields.io/badge/Built%20with-v0.dev-black?style=for-the-badge)](https://v0.dev/chat/projects/yrkRoP8p3MV)
-
-## Overview
-
-This repository will stay in sync with your deployed chats on [v0.dev](https://v0.dev).
-Any changes you make to your deployed app will be automatically pushed to this repository from [v0.dev](https://v0.dev).
-
-## Deployment
-
-Your project is live at:
-
-**[https://vercel.com/security-requirements-projects/v0-max-imum-security-priority-calc](https://vercel.com/security-requirements-projects/v0-max-imum-security-priority-calc)**
-
-## Build your app
-
-Continue building your app on:
-
-**[https://v0.dev/chat/projects/yrkRoP8p3MV](https://v0.dev/chat/projects/yrkRoP8p3MV)**
+# MAXimum Security Prioritisation Calculator
 
 ## How It Works
 
@@ -28,3 +6,15 @@ Continue building your app on:
 2. Deploy your chats from the v0 interface
 3. Changes are automatically pushed to this repository
 4. Vercel deploys the latest version from this repository
+
+
+
+![image](https://github.com/user-attachments/assets/11003175-1bf4-439f-afdf-ad56cb7af7c9)
+
+
+
+![image](https://github.com/user-attachments/assets/09ac648a-6fc1-4ee0-92b3-b368616b3f15)
+
+
+![image](https://github.com/user-attachments/assets/1375c820-d070-4c95-befb-56c02800a8ff)
+
