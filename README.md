@@ -103,7 +103,7 @@ Review the Criteria Reference before performing evaluations to understand scorin
 
 ---
 
-## Performing Security Evaluations
+## Performing Security Evaluations :gear:
 
 ### Step 1: Application Details
 
@@ -167,7 +167,7 @@ Each criterion appears as a calculator button with:
 
 ---
 
-## Understanding Results
+## Understanding Results :eyes: :brain:
 
 ### Overall Score Interpretation
 
@@ -176,7 +176,7 @@ Each criterion appears as a calculator button with:
 - **0-59 (Reject)**: Application does not meet security standards
 
 
-### Detailed Score Breakdown
+### Detailed Score Breakdown 
 
 Each criterion shows:
 
@@ -186,7 +186,7 @@ Each criterion shows:
 - **Progress bar** showing relative contribution
 
 
-### Recommendation Explanations
+### Recommendation Explanations :grinning: :raised_eyebrow: :disappointed:
 
 - **Approve**: Strong security posture, minimal additional controls needed
 - **Approve with conditions**: Acceptable risk with compensating controls
