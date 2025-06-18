@@ -196,12 +196,12 @@ Each criterion shows:
 
 ### Recommendation Explanations :grinning: :raised_eyebrow: :disappointed:
 
-- **Approve**: Strong security posture, minimal additional controls needed
-- **Approve with conditions**: Acceptable risk with compensating controls
-- **Reject**: Unacceptable risk level, recommend alternative solutions
+- :green_circle: **Approve**: Strong security posture, minimal additional controls needed
+- :orange_circle: **Approve with conditions**: Acceptable risk with compensating controls 
+- :red_circle: **Reject**: Unacceptable risk level, recommend alternative solutions
 
 
-### PDF Export
+### PDF Export :printer:
 
 Generated reports include:
 
@@ -213,7 +213,7 @@ Generated reports include:
 
 ---
 
-## Using the Risk Matrix
+## Using the Risk Matrix 
 
 ### Risk Matrix Visualization
 
@@ -253,7 +253,7 @@ Switch to the "Risk Trends" tab for:
 
 ---
 
-## Administrative Functions
+## Administrative Functions :stop_sign:
 
 ### Platform Type Management
 
@@ -392,4 +392,7 @@ For each criterion:
 ---
 
 *This guide covers the essential functions of the MAXimum Security Priority Calculator. For additional support or advanced configuration options, consult your system administrator or security team.*
+
+:gb:
+:uk:
 
