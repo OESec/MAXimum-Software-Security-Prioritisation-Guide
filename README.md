@@ -1,17 +1,5 @@
-# MAXimum Security Prioritisation Calculator
 
 # MAXimum Security Priority Calculator - User Guide :scroll:
-
-
-![image](https://github.com/user-attachments/assets/11003175-1bf4-439f-afdf-ad56cb7af7c9)
-
-
-![image](https://github.com/user-attachments/assets/09ac648a-6fc1-4ee0-92b3-b368616b3f15)
-
-
-![image](https://github.com/user-attachments/assets/1375c820-d070-4c95-befb-56c02800a8ff)
-
-
 
 ## Table of Contents 
 
@@ -24,6 +12,15 @@
 7. [Administrative Functions](#administrative-functions)
 8. [Best Practices](#best-practices)
 9. [Troubleshooting](#troubleshooting)
+
+
+![image](https://github.com/user-attachments/assets/11003175-1bf4-439f-afdf-ad56cb7af7c9)
+
+
+![image](https://github.com/user-attachments/assets/09ac648a-6fc1-4ee0-92b3-b368616b3f15)
+
+
+![image](https://github.com/user-attachments/assets/1375c820-d070-4c95-befb-56c02800a8ff)
 
 
 ---
