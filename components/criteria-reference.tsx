@@ -10,6 +10,7 @@ import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
 import { Download, FileText, Info, Star, Weight, CheckCircle2, AlertTriangle, XCircle } from "lucide-react"
 import { useToast } from "@/components/ui/use-toast"
+import { exportCriteriaToPDF, exportAllCriteriaToPDF } from "@/lib/criteria-pdf-export"
 
 export function CriteriaReference() {
   const { platformTypes } = useStore()
@@ -137,6 +138,38 @@ export function CriteriaReference() {
     })
   }
 
+  const exportToPDF = (platformType: any) => {
+    try {
+      exportCriteriaToPDF(platformType)
+      toast({
+        title: "Export successful",
+        description: `${platformType.name} criteria exported to PDF`,
+      })
+    } catch (error) {
+      toast({
+        title: "Export failed",
+        description: "There was an error generating the PDF",
+        variant: "destructive",
+      })
+    }
+  }
+
+  const exportAllToPDF = () => {
+    try {
+      exportAllCriteriaToPDF(platformTypes)
+      toast({
+        title: "Export successful",
+        description: "All platform criteria exported to PDF",
+      })
+    } catch (error) {
+      toast({
+        title: "Export failed",
+        description: "There was an error generating the PDF",
+        variant: "destructive",
+      })
+    }
+  }
+
   if (platformTypes.length === 0) {
     return (
       <Alert>
@@ -169,6 +202,10 @@ export function CriteriaReference() {
               <Button onClick={exportAllToCSV} variant="outline" size="sm">
                 <Download className="mr-2 h-4 w-4" />
                 Export All CSV
+              </Button>
+              <Button onClick={exportAllToPDF} variant="outline" size="sm">
+                <Download className="mr-2 h-4 w-4" />
+                Export All PDF
               </Button>
             </div>
           </div>
@@ -222,10 +259,16 @@ export function CriteriaReference() {
                       <span>Total weight: {platform.criteria.reduce((sum, c) => sum + c.weight, 0)}%</span>
                     </div>
                   </div>
-                  <Button onClick={() => exportToCSV(platform)} variant="outline" size="sm">
-                    <Download className="mr-2 h-4 w-4" />
-                    Export CSV
-                  </Button>
+                  <div className="flex gap-2">
+                    <Button onClick={() => exportToCSV(platform)} variant="outline" size="sm">
+                      <Download className="mr-2 h-4 w-4" />
+                      Export CSV
+                    </Button>
+                    <Button onClick={() => exportToPDF(platform)} variant="outline" size="sm">
+                      <Download className="mr-2 h-4 w-4" />
+                      Export PDF
+                    </Button>
+                  </div>
                 </div>
               </CardHeader>
               <CardContent>

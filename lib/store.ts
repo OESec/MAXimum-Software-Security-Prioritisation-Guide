@@ -950,10 +950,97 @@ const initialPlatformTypes: PlatformType[] = [
     criteria: [
       {
         id: uuidv4(),
+        name: "Approved by user's manager",
+        description:
+          "Indicates whether the user's direct manager or supervisor has approved this website access request. Manager approval provides an additional layer of oversight and ensures that the request aligns with departmental policies and business needs. This helps establish accountability and proper authorization chain for potentially risky website access.",
+        weight: 11,
+        options: [
+          {
+            id: uuidv4(),
+            label: "Yes",
+            value: 100,
+            description: "User's manager has explicitly approved this website access request",
+          },
+          {
+            id: uuidv4(),
+            label: "Not approved",
+            value: 0,
+            description: "Manager approval has not been obtained or has been denied",
+          },
+        ],
+      },
+      {
+        id: uuidv4(),
+        name: "User/Role Authorization Level",
+        description:
+          "This criterion evaluates whether the requesting user has the appropriate authorization level and legitimate need-to-know for accessing the requested content type. Not all users should have equal access to all website categories, even if they have business justification.",
+        weight: 15,
+        options: [
+          {
+            id: uuidv4(),
+            label: "Authorized role with appropriate access level",
+            value: 100,
+            description: "User's role and clearance level are appropriate for the requested website category",
+          },
+          {
+            id: uuidv4(),
+            label: "Authorized role but elevated access needed",
+            value: 70,
+            description: "User has legitimate role but may need supervisor approval for this content type",
+          },
+          {
+            id: uuidv4(),
+            label: "Limited authorization for requested content",
+            value: 40,
+            description: "User's role provides some justification but access should be restricted or monitored",
+          },
+          {
+            id: uuidv4(),
+            label: "Insufficient authorization level",
+            value: 0,
+            description: "User's role does not justify access to this type of content or website category",
+          },
+        ],
+      },
+      {
+        id: uuidv4(),
+        name: "Alternative Solutions Available",
+        description:
+          "This criterion assesses whether there are safer alternative methods to achieve the same business objective without whitelisting the potentially risky website. This helps ensure whitelisting is truly necessary rather than just convenient.",
+        weight: 12,
+        options: [
+          {
+            id: uuidv4(),
+            label: "No viable alternatives exist",
+            value: 100,
+            description: "The specific website is the only way to accomplish the required business function",
+          },
+          {
+            id: uuidv4(),
+            label: "Alternatives exist but significantly less efficient",
+            value: 75,
+            description: "Other methods available but would create substantial operational burden or delays",
+          },
+          {
+            id: uuidv4(),
+            label: "Reasonable alternatives available",
+            value: 30,
+            description: "Other methods exist that could accomplish the same goal with moderate additional effort",
+          },
+          {
+            id: uuidv4(),
+            label: "Multiple safer alternatives readily available",
+            value: 0,
+            description: "The business need can be easily met through other approved channels or websites",
+          },
+        ],
+      },
+      {
+        id: uuidv4(),
         name: "Probably misclassified and therefore blocked incorrectly?",
         description:
           "Assesses whether the website appears to have been incorrectly categorized or blocked by automated systems. Legitimate business websites may sometimes be misclassified due to content analysis errors, domain reputation issues, or false positives in security scanning. Consider the website's actual content, purpose, and legitimacy versus the stated blocking reason.",
-        weight: 35,
+        weight: 22,
         options: [
           {
             id: uuidv4(),
@@ -980,7 +1067,7 @@ const initialPlatformTypes: PlatformType[] = [
         name: "Was blocked by tool due to security reasons?",
         description:
           "Determines if the website was blocked specifically due to security concerns such as malware, phishing, suspicious activity, or known threats. Security-based blocks require careful evaluation as they may indicate genuine risks that could compromise organizational security if the site is whitelisted.",
-        weight: 40,
+        weight: 25,
         options: [
           {
             id: uuidv4(),
@@ -1013,7 +1100,7 @@ const initialPlatformTypes: PlatformType[] = [
         name: "Has a Business Justification?",
         description:
           "Evaluates whether there is a legitimate business need for accessing this website. Strong business justification is essential for whitelisting requests, as it helps balance security risks against operational requirements. Consider the business impact of continued blocking versus the potential security risks of allowing access.",
-        weight: 25,
+        weight: 15,
         options: [
           {
             id: uuidv4(),
