@@ -95,36 +95,9 @@ export function Calculator() {
     }))
   }
 
-  // Helper function to check if evaluation should be blocked
-  const isEvaluationBlocked = (): boolean => {
-    if (!selectedPlatformType || selectedPlatformType.name !== "Whitelisting websites") {
-      return false
-    }
-
-    const managerApprovalCriterion = selectedPlatformType.criteria.find(
-      (criterion) => criterion.name === "Approved by user's manager",
-    )
-
-    if (!managerApprovalCriterion) {
-      return false
-    }
-
-    const selectedOptionId = selections[managerApprovalCriterion.id]
-    const selectedOption = managerApprovalCriterion.options.find((option) => option.id === selectedOptionId)
-
-    // Block if "Not approved" is selected (value 0)
-    return selectedOption?.value === 0
-  }
-
   // Real-time calculation effect
   useEffect(() => {
     if (!selectedPlatformType || !appRequestId) return
-
-    // Check if evaluation is blocked
-    if (isEvaluationBlocked()) {
-      setResult(null)
-      return
-    }
 
     // Check if all criteria have selections
     const allCriteriaSelected = selectedPlatformType.criteria.every((criterion) => selections[criterion.id])
@@ -535,34 +508,11 @@ export function Calculator() {
                     </AlertDescription>
                   </Alert>
 
-                  {/* Blocked Evaluation Alert */}
-                  {isEvaluationBlocked() && (
-                    <Alert className="border-red-500 bg-red-50 dark:bg-red-950/20">
-                      <XCircle className="h-5 w-5 text-red-500" />
-                      <AlertTitle>Evaluation Blocked</AlertTitle>
-                      <AlertDescription>
-                        <div className="space-y-2">
-                          <p>
-                            This website whitelist request cannot proceed because it has not been approved by the user's
-                            manager.
-                          </p>
-                          <p className="text-sm font-medium">
-                            Manager approval is required before any security evaluation can be completed.
-                          </p>
-                          <p className="text-xs text-muted-foreground">
-                            Please obtain manager approval and select "Yes" for "Approved by user's manager" to
-                            continue.
-                          </p>
-                        </div>
-                      </AlertDescription>
-                    </Alert>
-                  )}
-
                   {/* Results Section */}
                   <div className="space-y-4">
                     <div className="flex justify-between items-center">
                       <h3 className="text-lg font-medium">Results</h3>
-                      {result && !isEvaluationBlocked() && (
+                      {result && (
                         <Button onClick={handleExportPDF} variant="outline" size="sm">
                           <Download className="mr-2 h-4 w-4" />
                           Export PDF
@@ -575,22 +525,14 @@ export function Calculator() {
                       <div className="flex justify-between items-center">
                         <h4 className="text-base font-medium">Overall Score</h4>
                         <span className="text-2xl font-bold">
-                          {result && !isEvaluationBlocked() ? `${formatScore(result.totalScore)}/100` : "0/100"}
+                          {result ? `${formatScore(result.totalScore)}/100` : "0/100"}
                         </span>
                       </div>
-                      <Progress
-                        value={result && !isEvaluationBlocked() ? result.totalScore : 0}
-                        className={`h-3 ${isEvaluationBlocked() ? "opacity-50" : ""}`}
-                      />
-                      {isEvaluationBlocked() && (
-                        <p className="text-sm text-red-600 dark:text-red-400">
-                          Evaluation blocked - manager approval required
-                        </p>
-                      )}
+                      <Progress value={result ? result.totalScore : 0} className="h-3" />
                     </div>
 
                     {/* Recommendation */}
-                    {result && !isEvaluationBlocked() && (
+                    {result && (
                       <Alert
                         className={
                           result.recommendation === "Approve"
@@ -618,11 +560,9 @@ export function Calculator() {
                       </Alert>
                     )}
 
-                    {/* Detailed Scores Progress - Always visible but greyed out when blocked */}
-                    <div className={`space-y-3 ${isEvaluationBlocked() ? "opacity-50" : ""}`}>
-                      <h4 className="text-sm font-medium text-muted-foreground">
-                        Detailed Scores {isEvaluationBlocked() && "(Blocked)"}
-                      </h4>
+                    {/* Detailed Scores Progress - Always visible */}
+                    <div className="space-y-3">
+                      <h4 className="text-sm font-medium text-muted-foreground">Detailed Scores</h4>
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                         {getDetailedScoresForDisplay().map((score) => (
                           <div key={score.criterionId} className="space-y-1">
@@ -631,9 +571,7 @@ export function Calculator() {
                                 {score.index}. {score.criterionName} ({score.weight}%)
                               </span>
                               <span className="text-xs text-muted-foreground">
-                                {score.selectedOption && !isEvaluationBlocked()
-                                  ? `${formatScore(score.weightedScore)} pts`
-                                  : "0 pts"}
+                                {score.selectedOption ? `${formatScore(score.weightedScore)} pts` : "0 pts"}
                               </span>
                             </div>
                             <div className="flex justify-between text-xs text-muted-foreground mb-1">
@@ -644,7 +582,7 @@ export function Calculator() {
                                 {score.selectedOption ? `Raw: ${score.selectedOption.value}/100` : "Raw: 0/100"}
                               </span>
                             </div>
-                            <Progress value={isEvaluationBlocked() ? 0 : score.progressValue} className="h-2" />
+                            <Progress value={score.progressValue} className="h-2" />
                           </div>
                         ))}
                       </div>
@@ -710,14 +648,11 @@ export function Calculator() {
                             </div>
 
                             {/* Calculator Button Options */}
-                            <div
-                              className={`p-3 ${isEvaluationBlocked() && criterion.name !== "Approved by user's manager" ? "opacity-50 pointer-events-none" : ""}`}
-                            >
+                            <div className="p-3">
                               <RadioGroup
                                 value={selections[criterion.id] || ""}
                                 onValueChange={(value) => handleSelectionChange(criterion.id, value)}
                                 className="space-y-1"
-                                disabled={isEvaluationBlocked() && criterion.name !== "Approved by user's manager"}
                               >
                                 {criterion.options.map((option) => (
                                   <div
@@ -726,22 +661,12 @@ export function Calculator() {
                                       selections[criterion.id] === option.id
                                         ? "bg-primary/10 dark:bg-primary/20"
                                         : "hover:bg-gray-100 dark:hover:bg-gray-800"
-                                    } ${isEvaluationBlocked() && criterion.name !== "Approved by user's manager" ? "cursor-not-allowed" : ""}`}
+                                    }`}
                                   >
-                                    <RadioGroupItem
-                                      value={option.id}
-                                      id={option.id}
-                                      disabled={
-                                        isEvaluationBlocked() && criterion.name !== "Approved by user's manager"
-                                      }
-                                    />
+                                    <RadioGroupItem value={option.id} id={option.id} />
                                     <Label
                                       htmlFor={option.id}
-                                      className={`flex justify-between w-full text-sm ${
-                                        isEvaluationBlocked() && criterion.name !== "Approved by user's manager"
-                                          ? "cursor-not-allowed"
-                                          : "cursor-pointer"
-                                      }`}
+                                      className="flex justify-between w-full text-sm cursor-pointer"
                                     >
                                       <span>{option.label}</span>
                                       <span
