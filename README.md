@@ -1,8 +1,8 @@
 # MAXimum Security Prioritisation Calculator
 
-                                              <img width="76" alt="image" src="https://github.com/user-attachments/assets/48b9d00c-f6d6-4091-90c8-bbd7a85f475e" />
+                                                                                   <img width="76" alt="image" src="https://github.com/user-attachments/assets/4488071d-21ba-4cad-ac07-28d7dc2fc614" />
 
-# MAXimum Security Priority Calculator - User Guide
+# MAXimum Security Priority Calculator - User Guide :scroll:
 
 ## Table of Contents 
 
