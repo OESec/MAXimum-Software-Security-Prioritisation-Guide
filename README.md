@@ -234,7 +234,7 @@ The Risk Matrix provides visual analysis of all completed evaluations:
 - **Time Range**: Adjust date ranges for trend analysis
 
 
-### Risk Trends Analysis
+### Risk Trends Analysis :chart_with_upwards_trend:
 
 Switch to the "Risk Trends" tab for:
 
@@ -385,7 +385,7 @@ For each criterion:
 - **0-59**: Reject
 
 
-### Priority Criterion
+### Priority Criterion :+1: :thumbsup:
 
 **"Internal Alternative Exists?"** appears first in all platform types - consider this fundamental question before proceeding with external application evaluation.
 
