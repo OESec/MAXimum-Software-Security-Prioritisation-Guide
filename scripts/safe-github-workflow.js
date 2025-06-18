@@ -1,0 +1,28 @@
+console.log("🔒 SAFE GITHUB + MANUAL DEPLOYMENT WORKFLOW")
+console.log("==========================================")
+console.log("")
+
+console.log("📋 SETUP (One-time):")
+console.log("1. Push code to GitHub (storage only)")
+console.log("2. Connect Vercel to GitHub repo")
+console.log("3. DISABLE auto-deployments in Vercel settings")
+console.log("4. Set up manual deployment only")
+console.log("")
+
+console.log("🔄 DAILY WORKFLOW:")
+console.log("1. Make changes in v0")
+console.log("2. Push to GitHub (backup/storage)")
+console.log("3. When ready to deploy:")
+console.log("   → Go to Vercel dashboard")
+console.log("   → Click 'Deploy' manually")
+console.log("   → YOU control timing")
+console.log("")
+
+console.log("✅ BENEFITS:")
+console.log("• Code safely stored on GitHub")
+console.log("• NO surprise deployments")
+console.log("• YOU decide when to go live")
+console.log("• Easy rollbacks via Vercel")
+console.log("")
+
+console.log("🚨 ZERO AUTO-DEPLOYMENT RISK!")
