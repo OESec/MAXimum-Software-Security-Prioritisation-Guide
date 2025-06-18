@@ -1,10 +1,10 @@
 # MAXimum Security Prioritisation Calculator
 
-
+<img width="76" alt="image" src="https://github.com/user-attachments/assets/48b9d00c-f6d6-4091-90c8-bbd7a85f475e" />
 
 # MAXimum Security Priority Calculator - User Guide
 
-## Table of Contents
+## Table of Contents 
 
 1. [Getting Started](#getting-started)
 2. [Understanding the Platform](#understanding-the-platform)
