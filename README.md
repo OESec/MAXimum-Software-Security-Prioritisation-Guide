@@ -1,7 +1,5 @@
 # MAXimum Security Prioritisation Calculator
 
-                                                                                   <img width="76" alt="image" src="https://github.com/user-attachments/assets/4488071d-21ba-4cad-ac07-28d7dc2fc614" />
-
 # MAXimum Security Priority Calculator - User Guide :scroll:
 
 ## Table of Contents 
@@ -21,11 +19,11 @@
 
 ## Getting Started
 
-### What is the MAXimum Security Priority Calculator?
+### What is the MAXimum Security Priority Calculator? :thinking:
 
 The MAXimum Security Priority Calculator is a comprehensive security evaluation tool designed to help organisations assess the risk of application installation requests. It provides standardized, weighted scoring across different platform types to ensure consistent security decision-making.
 
-### Accessing the Platform
+### Accessing the Platform :smiley:
 
 1. Navigate to the platform URL in your web browser
 2. The homepage provides an overview of features and capabilities
@@ -42,7 +40,7 @@ The MAXimum Security Priority Calculator is a comprehensive security evaluation 
 
 ---
 
-## Understanding the Platform
+## Understanding the Platform 
 
 ### Platform Types
 
