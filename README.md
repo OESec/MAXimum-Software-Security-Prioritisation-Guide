@@ -77,7 +77,7 @@ The calculator supports multiple platform types, each with tailored security cri
 
 ---
 
-## Using the Criteria Reference
+## Using the Criteria Reference :pencil:
 
 ### Purpose
 
